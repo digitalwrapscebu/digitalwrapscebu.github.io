@@ -3,6 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     <title>Digitalwraps Cebu</title>
 </head>
 <body>
@@ -18,13 +24,11 @@
         <p>We'd love to bring your ideas to life! Let's collaborate to turn your vision into a reality. Whether you're an individual, a team, or a business, we're here to work with you. Get in touch with us today, and let's create something amazing together.</p>
     
         <table class="contact-info">
-           <tr><td><img src="media/dir.png" alt=""></td><td>Leyson Street Talamban, Cebu City, Philippines (Behind Cebuana Lhuillier Pawnshop)</td></tr>
+           <tr><td><img src="media/dir.png" alt=""></td><td>Leyson Street Talamban, Cebu City, Philippines</td></tr>
            <tr><td><img src="media/email.png" alt=""></td><td>digitalwraps.cebu@gmail.com</td></tr>
            <tr><td><img src="media/phone.png" alt=""></td><td>+63 956 571 0565</td></tr>
         </table>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d490.5828556155168!2d123.91539458304214!3d10.368819750346782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1698678540892!5m2!1sen!2sph" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>    
+        <div id="map"></div>
     </div>
     <ul class="social">
         <li><a href="https://www.facebook.com/profile.php?id=61550907336272"><img src="media/facebook.png" alt=""></a></li>
@@ -48,5 +52,15 @@
         menuToggle.classList.toggle('active');
         showcase.classList.toggle('active');
         })
+        var map = L.map('map').setView([10.368895847109313, 123.91543768095701], 18);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; digitalwraps cebu'
+        }).addTo(map);
+
+        L.marker([10.368895847109313, 123.91543768095701]).addTo(map)
+            .bindPopup('We are here <br> Behind Cebuana Lhuillier Pawnshop')
+            .openPopup();
+
 </script>
 </html>

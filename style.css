@@ -242,9 +242,10 @@ header .logo
     filter: invert(1);
 }
 
-.map{
+#map{
     z-index:1000;
-    padding-top: 50px;
+    margin-top: 50px;
+    height:400px;
 }
 
 .product-nav{
